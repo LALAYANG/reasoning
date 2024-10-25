@@ -14,7 +14,7 @@ class InputPrediction(Task):
     answers, generation settings and evaluation methods.
     """
 
-    DATASET_PATH = "cruxeval-org/cruxeval"
+    DATASET_PATH = "yangccccc/ot-cruxeval" #"yangccccc/t-cruxeval"#"yangccccc/cruxeval_200"
     DATASET_NAME = None
 
     def __init__(self, cot = False):

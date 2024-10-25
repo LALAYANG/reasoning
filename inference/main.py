@@ -1,5 +1,6 @@
 # Copyright (c) Meta Platforms, Inc. and affiliates.
 
+import os
 import sys
 import json
 import random
@@ -11,12 +12,14 @@ import numpy as np
 import transformers
 from vllm import LLM
 from transformers import HfArgumentParser, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 from generator import Generator
 from generation_arguments import EvalArguments
 
 from tasks import ALL_TASKS
 
+AUTH_TOKEN = os.getenv('AUTH_TOKEN')
 
 class MultiChoice:
     def __init__(self, choices):
@@ -178,26 +181,38 @@ def pattern_match(patterns, source_list):
 
 
 def main():
+    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2"
     args = parse_args()
     random.seed(args.seed)
     np.random.seed(args.seed)
 
     transformers.logging.set_verbosity_error()
     datasets.logging.set_verbosity_error()
+    device = "cuda:0"
 
     model = LLM(
-        model=args.model, 
+        model= args.model, 
         dtype=args.precision, 
         trust_remote_code=args.trust_remote_code, 
-        gpu_memory_utilization=0.98,
+        # gpu_memory_utilization=0.98,
+        max_model_len = 4096,
         tensor_parallel_size=args.tensor_parallel_size,
+        # num_attention_heads = 36,
     )
+    # model.to('cuda')
+    
+    #"/home/shared/huggingface/" +
+    # model = AutoModelForCausalLM.from_pretrained(args.model, 
+    #         device_map="auto", 
+    #         use_auth_token=AUTH_TOKEN, 
+    #         cache_dir="/home/shared/huggingface/"
+    # )
 
     tokenizer = AutoTokenizer.from_pretrained(
         args.model,
         revision=args.revision,
         trust_remote_code=args.trust_remote_code,
-        use_auth_token=args.use_auth_token,
+        use_auth_token=AUTH_TOKEN,
         truncation_side="left",
         padding_side="right",
     )
