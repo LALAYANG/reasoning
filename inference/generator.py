@@ -37,9 +37,9 @@ class Generator:
         dataset_rows = range(dataset.num_rows)
 
         # shuffle the dataset
-        if self.args.shuffle:
-            dataset_rows = np.random.permutation(dataset_rows)
-            dataset = dataset.select(dataset_rows)
+        # if self.args.shuffle:
+        #     dataset_rows = np.random.permutation(dataset_rows)
+        #     dataset = dataset.select(dataset_rows)
 
         n_tasks = dataset.num_rows
 
@@ -69,6 +69,7 @@ class Generator:
         )
 
         references = [task.get_reference(dataset[i]) for i in range(n_tasks)]
+        print(generations)
 
         if len(list(generations.values())[0]) > self.args.n_samples:
             generations = {k: v[: self.args.n_samples] for k, v in generations.items()}

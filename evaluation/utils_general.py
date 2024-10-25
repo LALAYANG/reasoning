@@ -9,7 +9,7 @@ def pass_at_k(n, c, k):
 
 def evaluate_score(args):
     gs, (c, i, o), mode = args
-
+    print(args)
     execution_results = []
     for g in gs:
         if mode == "input" and "f(" not in g:
@@ -18,6 +18,7 @@ def evaluate_score(args):
             pass
         else:
             code_to_execute = f"{c}\nassert {o} == {g}"
+            # print(check_correctness(code_to_execute, 3))
             execution_results.append(check_correctness(code_to_execute, 3))
     if True not in execution_results:
         execution_results = [False] * len(gs)

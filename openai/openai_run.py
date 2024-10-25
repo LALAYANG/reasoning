@@ -12,7 +12,7 @@ from openai_prompt import (
 )
 
 def run_openai(model, mode, cot, temperature):
-    dataset = [json.loads(l) for l in open("../data/cruxeval.jsonl", "r").readlines()]
+    dataset = [json.loads(l) for l in open("../data/original_cruxeval_200.jsonl", "r").readlines()] #cruxeval_200.jsonl  new_cruxeval_200.jsonl
 
     if mode == "input": prompts = [(data["code"], data["output"]) for data in dataset] 
     else: prompts = [(data["code"], data["input"]) for data in dataset] 
@@ -52,10 +52,10 @@ def get_save_dir(mode, model, cot, temperature):
     return os.path.join(base_dir, "generations.json")
         
 if __name__ == "__main__":
-    models = ["gpt-3.5-turbo-0613", "gpt-4-0613"]
-    modes = ["input", "output"]
+    models = ["gpt-4-turbo"]
+    modes = ["input"] #"input", 
     cots = [False, True]
-    temperatures = [0.2, 0.8]
+    temperatures = [0.0]
     for model, mode, cot, temperature in product(models, modes, cots, temperatures):
         run_openai(model, mode, cot, temperature)
         break # comment out to run the whole thing $$

@@ -10,14 +10,14 @@ from utils_general import (
 
 def evaluate_generations(generations : dict[str, list], mode):
     # Load the samples
-    dataset = [json.loads(l) for l in open("../data/cruxeval.jsonl", "r").readlines()]
+    dataset = [json.loads(l) for l in open("../data/cruxeval_200.jsonl", "r").readlines()]
     references = [(doc["code"], doc["input"], doc["output"]) for doc in dataset]
 
     # Run the samples
     try:
-        generations_list = [generations[f"sample_{i}"] for i in range(len(dataset))]
+        generations_list = [generations[f"{i}"] for i in generations]
     except:
-        assert False, "check format of generations, should be dictionary of lists with keys of id's in the form sample_i"
+        assert False, "check format of generations, should be dictionary of lists with keys of id's in the form i"
         
     with ProcessPoolExecutor() as executor:
         args_list = zip(generations_list, references, [mode] * len(generations_list))
@@ -32,7 +32,7 @@ def evaluate_generations(generations : dict[str, list], mode):
         pass_at_5s.append(pass_at_k(n, c, 5))
 
     return {"raw_generations": generations,
-            "raw_scored_generations": {f"sample_{i}": all_scores[i] for i in range(len(dataset))},
+            "raw_scored_generations": {f"{i}": all_scores[i] for i in range(len(dataset))},
             "pass_at_1": sum(pass_at_1s) / len(pass_at_1s) * 100,
             "pass_at_5": sum(pass_at_5s) / len(pass_at_5s) * 100}
 

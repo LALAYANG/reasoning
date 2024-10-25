@@ -68,18 +68,9 @@ run_names=(
 mkdir evaluation_results
 for run_name in "${run_names[@]}"; do
 	echo $run_name
-    sbatch --export=ALL,run_name="${run_name}" <<'EOF'
-#!/bin/bash
-#SBATCH --output=slurm_logs/slurm-%A-%a.out
-#SBATCH --error=slurm_logs/slurm-%A-%a.err
-#SBATCH --partition=YOUR_PARTITION_HERE
-#SBATCH --cpus-per-task=40
-#SBATCH --mem=0GB
-#SBATCH --time=03:00:00
 
 python evaluate_generations.py \
     --generations_path ../model_generations/${run_name}/generations.json \
     --scored_results_path evaluation_results/${run_name}.json \
     --mode input
-EOF
 done
