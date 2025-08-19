@@ -15,9 +15,9 @@ from prompts import (
     make_cot_input_prompt,
 )
 
-client = OpenAI(
-    api_key=os.environ.get("OPENAI_API_KEY"),
-)
+# client = OpenAI(
+#     # api_key=os.environ.get("OPENAI_API_KEY"),
+# )
 
 def extract_answer_direct_output(gen):
     if "==" in gen:
@@ -51,36 +51,66 @@ def extract_answer_cot_output(gen):
     else:
         return gen.split('\n')[-1].strip()
 
+def read_json(file_path):
+    with open(file_path, "r", encoding="utf-8") as file:
+        data = json.load(file)
+    return data
+
 def call_openai_api(system_prompt, prompt, temperature, n, model, max_tokens, stop) -> list[str]:
-    print("not cached")
+    print("not cached\n")
+    # ID = prompt.split("##ID##\n")[0].split("#sample_")[-1]
+    # match_id = f"sample_{ID}"
+    # print(match_id)
+    # data = read_json("icl_cruxeval.json")  #icl_cruxeval.json
+    # icl = data[match_id]
+    # prompt = prompt + f"[THOUGHT]The following semantically equivalent program may help your understanding::\n[PYTHON]{icl}[/PYTHON][THOUGHT]"
+    # prompt = prompt + "[THOUGHT] Do not answer anything else or explainations. Just give the final answer; Do not say if the two code snippets are semantically equivalent or not[/THOUGHT]"
     prompt = [
-        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": system_prompt},
         {"role": "user", "content": prompt}
     ]
     while True:
         try:
+            client = OpenAI(
+                base_url="http://127.0.0.1:8000/v1", #11434 #8000 #130.126.137.50
+                #127.0.0.1
+            )
+            # print("With ICL:")
+            print(prompt)
             result = client.chat.completions.create(
-                model=model,
                 messages=prompt,
+                model=model,
                 temperature=temperature,
                 n=n,
                 max_tokens=max_tokens,
                 stop=stop
             )
+            print(result)
+            # result = client.chat.completions.create(
+            #     model=model,
+            #     messages=prompt,
+            #     temperature=temperature,
+            #     n=n,
+            #     max_tokens=max_tokens,
+            #     stop=stop
+            # )
             break
-        except:
+        except Exception as e:
+            print(f"Error: {e}")
             import time; time.sleep(10); pass
     return [result.choices[i].message.content for i in range(n)]
 
 def prompt_openai_general(make_prompt_fn, i, cache, gpt_query, temperature, n, model, max_tokens, stop) -> tuple[str, list[str]]:
     x = random.randint(1, 1000)
     print(f"started {x}")
-
+    # print(gpt_query)
     full_prompt = make_prompt_fn(gpt_query)
+    # print(full_prompt)
     if temperature == 0:
         cache_key = f"{full_prompt}_{model}"
     else:
         cache_key = f"{full_prompt}_{model}_{str(temperature)}" 
+    # print(cache_key)
 
     if cache_key not in cache or (cache_key in cache and n > len(cache[cache_key])):
         cache_result = []
