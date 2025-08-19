@@ -181,14 +181,14 @@ def pattern_match(patterns, source_list):
 
 
 def main():
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
     args = parse_args()
     random.seed(args.seed)
     np.random.seed(args.seed)
 
     transformers.logging.set_verbosity_error()
     datasets.logging.set_verbosity_error()
-    device = "cuda:0"
+    device = "cuda:0,1"
 
     model = LLM(
         model= args.model, 
