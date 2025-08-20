@@ -9,6 +9,13 @@ from torch.utils.data import IterableDataset
 from tqdm import tqdm
 
 
+import json
+def read_json(file_path):
+    with open(file_path, "r", encoding="utf-8") as file:
+        data = json.load(file)
+    return data
+
+
 class TokenizedDataset(IterableDataset):
     """Tokenize and preprocess the dataset
     Multiple copies of the same prompt are sent sequentially. See compute_code for more details.
@@ -95,6 +102,16 @@ def complete_code(
         outputs = model.generate(
             prompt_token_ids=inputs, sampling_params=sampling_params, use_tqdm=False
         )
+        
+        prompt = batch["prompt"][0]
+        ID = prompt.split("##ID##\n")[0].split("#sample_")[-1]
+        match_id = f"sample_{ID}"
+        print(match_id)
+        data = read_json("../data/icl_cruxeval.json")  #icl_cruxeval.json
+        icl = data[match_id]
+        prompt = prompt + f"[THOUGHT]The following semantically equivalent program may help your understanding::\n[PYTHON]{icl}[/PYTHON][THOUGHT]"
+        prompt = prompt + "[THOUGHT] Do not answer anything else or explainations. Just give the final answer; Do not say if the two code snippets are semantically equivalent or not[/THOUGHT]"
+        batch["prompt"][0] = prompt
 
         generated_tasks = batch["row_index"].repeat(batch_size)
         generated_texts = [o.text for o in outputs[0].outputs]
