@@ -1,0 +1,42 @@
++ jsons=(../GA0_gpts/gpt-4o+cot_temp0.0_input/generations.json ../GA0_gpts/o4-mini+cot_temp0.0_input/generations.json ../GA0_gpts/gpt-4o+cot_temp0.0_output/generations.json ../GA0_gpts/o4-mini+cot_temp0.0_output/generations.json)
++ mkdir -p scores
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../GA0_gpts/gpt-4o+cot_temp0.0_input/generations
++ mkdir -p ga_scores/../GA0_gpts/gpt-4o+cot_temp0.0_input/generations
++ python evaluate_generations.py --generations_path ../GA0_gpts/gpt-4o+cot_temp0.0_input/generations.json --scored_results_path ga_scores/../GA0_gpts/gpt-4o+cot_temp0.0_input/generations.json --mode input
+Scoring ../GA0_gpts/gpt-4o+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 75.5 pass@5: 100.0
+Dumping to ga_scores/../GA0_gpts/gpt-4o+cot_temp0.0_input/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../GA0_gpts/o4-mini+cot_temp0.0_input/generations
++ mkdir -p ga_scores/../GA0_gpts/o4-mini+cot_temp0.0_input/generations
++ python evaluate_generations.py --generations_path ../GA0_gpts/o4-mini+cot_temp0.0_input/generations.json --scored_results_path ga_scores/../GA0_gpts/o4-mini+cot_temp0.0_input/generations.json --mode input
+Scoring ../GA0_gpts/o4-mini+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 47.5 pass@5: 100.0
+Dumping to ga_scores/../GA0_gpts/o4-mini+cot_temp0.0_input/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../GA0_gpts/gpt-4o+cot_temp0.0_output/generations
++ mkdir -p ga_scores/../GA0_gpts/gpt-4o+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../GA0_gpts/gpt-4o+cot_temp0.0_output/generations.json --scored_results_path ga_scores/../GA0_gpts/gpt-4o+cot_temp0.0_output/generations.json --mode input
+Scoring ../GA0_gpts/gpt-4o+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 84.5 pass@5: 100.0
+Dumping to ga_scores/../GA0_gpts/gpt-4o+cot_temp0.0_output/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../GA0_gpts/o4-mini+cot_temp0.0_output/generations
++ mkdir -p ga_scores/../GA0_gpts/o4-mini+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../GA0_gpts/o4-mini+cot_temp0.0_output/generations.json --scored_results_path ga_scores/../GA0_gpts/o4-mini+cot_temp0.0_output/generations.json --mode input
+Scoring ../GA0_gpts/o4-mini+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 0.0 pass@5: 100.0
+Dumping to ga_scores/../GA0_gpts/o4-mini+cot_temp0.0_output/generations.json
