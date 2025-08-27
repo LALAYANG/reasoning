@@ -1,0 +1,518 @@
++ SCORES_DIR=scores
++ LOG_DIR=icl_evaluation_logs
++ mkdir -p scores
++ mkdir -p icl_evaluation_logs
++ FILES=(../icl_model_generations/codellama:13b+cot_temp0.0_input/generations.json ../icl_model_generations/codellama:13b+cot_temp0.0_output/generations.json ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_input/generations.json ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_output/generations.json ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_input/generations.json ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_output/generations.json ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_input/generations.json ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_output/generations.json ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_input/generations.json ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_output/generations.json ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations.json ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_output/generations.json ../icl_model_generations/starcoder2:15b+cot_temp0.0_input/generations.json ../icl_model_generations/starcoder2:15b+cot_temp0.0_output/generations.json ../icl_model_generations/wizardcoder:33b+cot_temp0.0_input/generations.json ../icl_model_generations/wizardcoder:33b+cot_temp0.0_output/generations.json ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_input/generations.json ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_output/generations.json)
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/codellama:13b+cot_temp0.0_input/generations.json
+++ basename ../icl_model_generations/codellama:13b+cot_temp0.0_input
++ DIR_NAME=codellama:13b+cot_temp0.0_input
++ [[ codellama:13b+cot_temp0.0_input == *_input ]]
++ MODE=input
++ MODEL_NAME=codellama:13b+cot_temp0.0
+++ echo codellama:13b+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=codellama_13b+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_codellama_13b+cot_temp0.0-input.json
++ LOG_PATH=icl_evaluation_logs/codellama_13b+cot_temp0.0_input.log
++ echo 'Processing: ../icl_model_generations/codellama:13b+cot_temp0.0_input/generations.json'
+Processing: ../icl_model_generations/codellama:13b+cot_temp0.0_input/generations.json
++ echo 'Model: codellama:13b+cot_temp0.0'
+Model: codellama:13b+cot_temp0.0
++ echo 'Mode: input'
+Mode: input
++ echo 'Scored results: scores/icl_after_codellama_13b+cot_temp0.0-input.json'
+Scored results: scores/icl_after_codellama_13b+cot_temp0.0-input.json
++ echo 'Log file: icl_evaluation_logs/codellama_13b+cot_temp0.0_input.log'
+Log file: icl_evaluation_logs/codellama_13b+cot_temp0.0_input.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/codellama:13b+cot_temp0.0_input/generations.json --scored_results_path scores/icl_after_codellama_13b+cot_temp0.0-input.json --mode input
++ tee icl_evaluation_logs/codellama_13b+cot_temp0.0_input.log
+Scoring ../icl_model_generations/codellama:13b+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 36.0 pass@5: 100.0
+Dumping to scores/icl_after_codellama_13b+cot_temp0.0-input.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/codellama:13b+cot_temp0.0_output/generations.json
+++ basename ../icl_model_generations/codellama:13b+cot_temp0.0_output
++ DIR_NAME=codellama:13b+cot_temp0.0_output
++ [[ codellama:13b+cot_temp0.0_output == *_input ]]
++ [[ codellama:13b+cot_temp0.0_output == *_output ]]
++ MODE=output
++ MODEL_NAME=codellama:13b+cot_temp0.0
+++ echo codellama:13b+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=codellama_13b+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_codellama_13b+cot_temp0.0-output.json
++ LOG_PATH=icl_evaluation_logs/codellama_13b+cot_temp0.0_output.log
++ echo 'Processing: ../icl_model_generations/codellama:13b+cot_temp0.0_output/generations.json'
+Processing: ../icl_model_generations/codellama:13b+cot_temp0.0_output/generations.json
++ echo 'Model: codellama:13b+cot_temp0.0'
+Model: codellama:13b+cot_temp0.0
++ echo 'Mode: output'
+Mode: output
++ echo 'Scored results: scores/icl_after_codellama_13b+cot_temp0.0-output.json'
+Scored results: scores/icl_after_codellama_13b+cot_temp0.0-output.json
++ echo 'Log file: icl_evaluation_logs/codellama_13b+cot_temp0.0_output.log'
+Log file: icl_evaluation_logs/codellama_13b+cot_temp0.0_output.log
++ tee icl_evaluation_logs/codellama_13b+cot_temp0.0_output.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/codellama:13b+cot_temp0.0_output/generations.json --scored_results_path scores/icl_after_codellama_13b+cot_temp0.0-output.json --mode output
+Scoring ../icl_model_generations/codellama:13b+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 32.0 pass@5: 100.0
+Dumping to scores/icl_after_codellama_13b+cot_temp0.0-output.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_input/generations.json
+++ basename ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_input
++ DIR_NAME=codellama:13b-instruct+cot_temp0.0_input
++ [[ codellama:13b-instruct+cot_temp0.0_input == *_input ]]
++ MODE=input
++ MODEL_NAME=codellama:13b-instruct+cot_temp0.0
+++ echo codellama:13b-instruct+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=codellama_13b-instruct+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_codellama_13b-instruct+cot_temp0.0-input.json
++ LOG_PATH=icl_evaluation_logs/codellama_13b-instruct+cot_temp0.0_input.log
++ echo 'Processing: ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_input/generations.json'
+Processing: ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_input/generations.json
++ echo 'Model: codellama:13b-instruct+cot_temp0.0'
+Model: codellama:13b-instruct+cot_temp0.0
++ echo 'Mode: input'
+Mode: input
++ echo 'Scored results: scores/icl_after_codellama_13b-instruct+cot_temp0.0-input.json'
+Scored results: scores/icl_after_codellama_13b-instruct+cot_temp0.0-input.json
++ echo 'Log file: icl_evaluation_logs/codellama_13b-instruct+cot_temp0.0_input.log'
+Log file: icl_evaluation_logs/codellama_13b-instruct+cot_temp0.0_input.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_input/generations.json --scored_results_path scores/icl_after_codellama_13b-instruct+cot_temp0.0-input.json --mode input
++ tee icl_evaluation_logs/codellama_13b-instruct+cot_temp0.0_input.log
+Scoring ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 36.5 pass@5: 100.0
+Dumping to scores/icl_after_codellama_13b-instruct+cot_temp0.0-input.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_output/generations.json
+++ basename ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_output
++ DIR_NAME=codellama:13b-instruct+cot_temp0.0_output
++ [[ codellama:13b-instruct+cot_temp0.0_output == *_input ]]
++ [[ codellama:13b-instruct+cot_temp0.0_output == *_output ]]
++ MODE=output
++ MODEL_NAME=codellama:13b-instruct+cot_temp0.0
+++ echo codellama:13b-instruct+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=codellama_13b-instruct+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_codellama_13b-instruct+cot_temp0.0-output.json
++ LOG_PATH=icl_evaluation_logs/codellama_13b-instruct+cot_temp0.0_output.log
++ echo 'Processing: ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_output/generations.json'
+Processing: ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_output/generations.json
++ echo 'Model: codellama:13b-instruct+cot_temp0.0'
+Model: codellama:13b-instruct+cot_temp0.0
++ echo 'Mode: output'
+Mode: output
++ echo 'Scored results: scores/icl_after_codellama_13b-instruct+cot_temp0.0-output.json'
+Scored results: scores/icl_after_codellama_13b-instruct+cot_temp0.0-output.json
++ echo 'Log file: icl_evaluation_logs/codellama_13b-instruct+cot_temp0.0_output.log'
+Log file: icl_evaluation_logs/codellama_13b-instruct+cot_temp0.0_output.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_output/generations.json --scored_results_path scores/icl_after_codellama_13b-instruct+cot_temp0.0-output.json --mode output
++ tee icl_evaluation_logs/codellama_13b-instruct+cot_temp0.0_output.log
+Scoring ../icl_model_generations/codellama:13b-instruct+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 32.5 pass@5: 100.0
+Dumping to scores/icl_after_codellama_13b-instruct+cot_temp0.0-output.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_input/generations.json
+++ basename ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_input
++ DIR_NAME=codellama:34b-instruct+cot_temp0.0_input
++ [[ codellama:34b-instruct+cot_temp0.0_input == *_input ]]
++ MODE=input
++ MODEL_NAME=codellama:34b-instruct+cot_temp0.0
+++ echo codellama:34b-instruct+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=codellama_34b-instruct+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_codellama_34b-instruct+cot_temp0.0-input.json
++ LOG_PATH=icl_evaluation_logs/codellama_34b-instruct+cot_temp0.0_input.log
++ echo 'Processing: ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_input/generations.json'
+Processing: ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_input/generations.json
++ echo 'Model: codellama:34b-instruct+cot_temp0.0'
+Model: codellama:34b-instruct+cot_temp0.0
++ echo 'Mode: input'
+Mode: input
++ echo 'Scored results: scores/icl_after_codellama_34b-instruct+cot_temp0.0-input.json'
+Scored results: scores/icl_after_codellama_34b-instruct+cot_temp0.0-input.json
++ echo 'Log file: icl_evaluation_logs/codellama_34b-instruct+cot_temp0.0_input.log'
+Log file: icl_evaluation_logs/codellama_34b-instruct+cot_temp0.0_input.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_input/generations.json --scored_results_path scores/icl_after_codellama_34b-instruct+cot_temp0.0-input.json --mode input
++ tee icl_evaluation_logs/codellama_34b-instruct+cot_temp0.0_input.log
+Scoring ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 12.5 pass@5: 100.0
+Dumping to scores/icl_after_codellama_34b-instruct+cot_temp0.0-input.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_output/generations.json
+++ basename ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_output
++ DIR_NAME=codellama:34b-instruct+cot_temp0.0_output
++ [[ codellama:34b-instruct+cot_temp0.0_output == *_input ]]
++ [[ codellama:34b-instruct+cot_temp0.0_output == *_output ]]
++ MODE=output
++ MODEL_NAME=codellama:34b-instruct+cot_temp0.0
+++ echo codellama:34b-instruct+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=codellama_34b-instruct+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_codellama_34b-instruct+cot_temp0.0-output.json
++ LOG_PATH=icl_evaluation_logs/codellama_34b-instruct+cot_temp0.0_output.log
++ echo 'Processing: ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_output/generations.json'
+Processing: ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_output/generations.json
++ echo 'Model: codellama:34b-instruct+cot_temp0.0'
+Model: codellama:34b-instruct+cot_temp0.0
++ echo 'Mode: output'
+Mode: output
++ echo 'Scored results: scores/icl_after_codellama_34b-instruct+cot_temp0.0-output.json'
+Scored results: scores/icl_after_codellama_34b-instruct+cot_temp0.0-output.json
++ echo 'Log file: icl_evaluation_logs/codellama_34b-instruct+cot_temp0.0_output.log'
+Log file: icl_evaluation_logs/codellama_34b-instruct+cot_temp0.0_output.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_output/generations.json --scored_results_path scores/icl_after_codellama_34b-instruct+cot_temp0.0-output.json --mode output
++ tee icl_evaluation_logs/codellama_34b-instruct+cot_temp0.0_output.log
+Scoring ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 20.5 pass@5: 100.0
+Dumping to scores/icl_after_codellama_34b-instruct+cot_temp0.0-output.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_input/generations.json
+++ basename ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_input
++ DIR_NAME=deepseek-coder:33b-instruct+cot_temp0.0_input
++ [[ deepseek-coder:33b-instruct+cot_temp0.0_input == *_input ]]
++ MODE=input
++ MODEL_NAME=deepseek-coder:33b-instruct+cot_temp0.0
+++ echo deepseek-coder:33b-instruct+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=deepseek-coder_33b-instruct+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_deepseek-coder_33b-instruct+cot_temp0.0-input.json
++ LOG_PATH=icl_evaluation_logs/deepseek-coder_33b-instruct+cot_temp0.0_input.log
++ echo 'Processing: ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_input/generations.json'
+Processing: ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_input/generations.json
++ echo 'Model: deepseek-coder:33b-instruct+cot_temp0.0'
+Model: deepseek-coder:33b-instruct+cot_temp0.0
++ echo 'Mode: input'
+Mode: input
++ echo 'Scored results: scores/icl_after_deepseek-coder_33b-instruct+cot_temp0.0-input.json'
+Scored results: scores/icl_after_deepseek-coder_33b-instruct+cot_temp0.0-input.json
++ echo 'Log file: icl_evaluation_logs/deepseek-coder_33b-instruct+cot_temp0.0_input.log'
+Log file: icl_evaluation_logs/deepseek-coder_33b-instruct+cot_temp0.0_input.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_input/generations.json --scored_results_path scores/icl_after_deepseek-coder_33b-instruct+cot_temp0.0-input.json --mode input
++ tee icl_evaluation_logs/deepseek-coder_33b-instruct+cot_temp0.0_input.log
+Scoring ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 24.0 pass@5: 100.0
+Dumping to scores/icl_after_deepseek-coder_33b-instruct+cot_temp0.0-input.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_output/generations.json
+++ basename ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_output
++ DIR_NAME=deepseek-coder:33b-instruct+cot_temp0.0_output
++ [[ deepseek-coder:33b-instruct+cot_temp0.0_output == *_input ]]
++ [[ deepseek-coder:33b-instruct+cot_temp0.0_output == *_output ]]
++ MODE=output
++ MODEL_NAME=deepseek-coder:33b-instruct+cot_temp0.0
+++ echo deepseek-coder:33b-instruct+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=deepseek-coder_33b-instruct+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_deepseek-coder_33b-instruct+cot_temp0.0-output.json
++ LOG_PATH=icl_evaluation_logs/deepseek-coder_33b-instruct+cot_temp0.0_output.log
++ echo 'Processing: ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_output/generations.json'
+Processing: ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_output/generations.json
++ echo 'Model: deepseek-coder:33b-instruct+cot_temp0.0'
+Model: deepseek-coder:33b-instruct+cot_temp0.0
++ echo 'Mode: output'
+Mode: output
++ echo 'Scored results: scores/icl_after_deepseek-coder_33b-instruct+cot_temp0.0-output.json'
+Scored results: scores/icl_after_deepseek-coder_33b-instruct+cot_temp0.0-output.json
++ echo 'Log file: icl_evaluation_logs/deepseek-coder_33b-instruct+cot_temp0.0_output.log'
+Log file: icl_evaluation_logs/deepseek-coder_33b-instruct+cot_temp0.0_output.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_output/generations.json --scored_results_path scores/icl_after_deepseek-coder_33b-instruct+cot_temp0.0-output.json --mode output
++ tee icl_evaluation_logs/deepseek-coder_33b-instruct+cot_temp0.0_output.log
+Scoring ../icl_model_generations/deepseek-coder:33b-instruct+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 33.5 pass@5: 100.0
+Dumping to scores/icl_after_deepseek-coder_33b-instruct+cot_temp0.0-output.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_input/generations.json
+++ basename ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_input
++ DIR_NAME=deepseek-coder:6.7b+cot_temp0.0_input
++ [[ deepseek-coder:6.7b+cot_temp0.0_input == *_input ]]
++ MODE=input
++ MODEL_NAME=deepseek-coder:6.7b+cot_temp0.0
+++ echo deepseek-coder:6.7b+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=deepseek-coder_6.7b+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_deepseek-coder_6.7b+cot_temp0.0-input.json
++ LOG_PATH=icl_evaluation_logs/deepseek-coder_6.7b+cot_temp0.0_input.log
++ echo 'Processing: ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_input/generations.json'
+Processing: ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_input/generations.json
++ echo 'Model: deepseek-coder:6.7b+cot_temp0.0'
+Model: deepseek-coder:6.7b+cot_temp0.0
++ echo 'Mode: input'
+Mode: input
++ echo 'Scored results: scores/icl_after_deepseek-coder_6.7b+cot_temp0.0-input.json'
+Scored results: scores/icl_after_deepseek-coder_6.7b+cot_temp0.0-input.json
++ echo 'Log file: icl_evaluation_logs/deepseek-coder_6.7b+cot_temp0.0_input.log'
+Log file: icl_evaluation_logs/deepseek-coder_6.7b+cot_temp0.0_input.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_input/generations.json --scored_results_path scores/icl_after_deepseek-coder_6.7b+cot_temp0.0-input.json --mode input
++ tee icl_evaluation_logs/deepseek-coder_6.7b+cot_temp0.0_input.log
+Scoring ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 3.0 pass@5: 100.0
+Dumping to scores/icl_after_deepseek-coder_6.7b+cot_temp0.0-input.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_output/generations.json
+++ basename ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_output
++ DIR_NAME=deepseek-coder:6.7b+cot_temp0.0_output
++ [[ deepseek-coder:6.7b+cot_temp0.0_output == *_input ]]
++ [[ deepseek-coder:6.7b+cot_temp0.0_output == *_output ]]
++ MODE=output
++ MODEL_NAME=deepseek-coder:6.7b+cot_temp0.0
+++ echo deepseek-coder:6.7b+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=deepseek-coder_6.7b+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_deepseek-coder_6.7b+cot_temp0.0-output.json
++ LOG_PATH=icl_evaluation_logs/deepseek-coder_6.7b+cot_temp0.0_output.log
++ echo 'Processing: ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_output/generations.json'
+Processing: ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_output/generations.json
++ echo 'Model: deepseek-coder:6.7b+cot_temp0.0'
+Model: deepseek-coder:6.7b+cot_temp0.0
++ echo 'Mode: output'
+Mode: output
++ echo 'Scored results: scores/icl_after_deepseek-coder_6.7b+cot_temp0.0-output.json'
+Scored results: scores/icl_after_deepseek-coder_6.7b+cot_temp0.0-output.json
++ echo 'Log file: icl_evaluation_logs/deepseek-coder_6.7b+cot_temp0.0_output.log'
+Log file: icl_evaluation_logs/deepseek-coder_6.7b+cot_temp0.0_output.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_output/generations.json --scored_results_path scores/icl_after_deepseek-coder_6.7b+cot_temp0.0-output.json --mode output
++ tee icl_evaluation_logs/deepseek-coder_6.7b+cot_temp0.0_output.log
+Scoring ../icl_model_generations/deepseek-coder:6.7b+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 0.5 pass@5: 100.0
+Dumping to scores/icl_after_deepseek-coder_6.7b+cot_temp0.0-output.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations.json
+++ basename ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_input
++ DIR_NAME=deepseek-coder:6.7b-instruct+cot_temp0.0_input
++ [[ deepseek-coder:6.7b-instruct+cot_temp0.0_input == *_input ]]
++ MODE=input
++ MODEL_NAME=deepseek-coder:6.7b-instruct+cot_temp0.0
+++ echo deepseek-coder:6.7b-instruct+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=deepseek-coder_6.7b-instruct+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_deepseek-coder_6.7b-instruct+cot_temp0.0-input.json
++ LOG_PATH=icl_evaluation_logs/deepseek-coder_6.7b-instruct+cot_temp0.0_input.log
++ echo 'Processing: ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations.json'
+Processing: ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations.json
++ echo 'Model: deepseek-coder:6.7b-instruct+cot_temp0.0'
+Model: deepseek-coder:6.7b-instruct+cot_temp0.0
++ echo 'Mode: input'
+Mode: input
++ echo 'Scored results: scores/icl_after_deepseek-coder_6.7b-instruct+cot_temp0.0-input.json'
+Scored results: scores/icl_after_deepseek-coder_6.7b-instruct+cot_temp0.0-input.json
++ echo 'Log file: icl_evaluation_logs/deepseek-coder_6.7b-instruct+cot_temp0.0_input.log'
+Log file: icl_evaluation_logs/deepseek-coder_6.7b-instruct+cot_temp0.0_input.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations.json --scored_results_path scores/icl_after_deepseek-coder_6.7b-instruct+cot_temp0.0-input.json --mode input
++ tee icl_evaluation_logs/deepseek-coder_6.7b-instruct+cot_temp0.0_input.log
+Scoring ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 1.0 pass@5: 100.0
+Dumping to scores/icl_after_deepseek-coder_6.7b-instruct+cot_temp0.0-input.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_output/generations.json
+++ basename ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_output
++ DIR_NAME=deepseek-coder:6.7b-instruct+cot_temp0.0_output
++ [[ deepseek-coder:6.7b-instruct+cot_temp0.0_output == *_input ]]
++ [[ deepseek-coder:6.7b-instruct+cot_temp0.0_output == *_output ]]
++ MODE=output
++ MODEL_NAME=deepseek-coder:6.7b-instruct+cot_temp0.0
+++ echo deepseek-coder:6.7b-instruct+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=deepseek-coder_6.7b-instruct+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_deepseek-coder_6.7b-instruct+cot_temp0.0-output.json
++ LOG_PATH=icl_evaluation_logs/deepseek-coder_6.7b-instruct+cot_temp0.0_output.log
++ echo 'Processing: ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_output/generations.json'
+Processing: ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_output/generations.json
++ echo 'Model: deepseek-coder:6.7b-instruct+cot_temp0.0'
+Model: deepseek-coder:6.7b-instruct+cot_temp0.0
++ echo 'Mode: output'
+Mode: output
++ echo 'Scored results: scores/icl_after_deepseek-coder_6.7b-instruct+cot_temp0.0-output.json'
+Scored results: scores/icl_after_deepseek-coder_6.7b-instruct+cot_temp0.0-output.json
++ echo 'Log file: icl_evaluation_logs/deepseek-coder_6.7b-instruct+cot_temp0.0_output.log'
+Log file: icl_evaluation_logs/deepseek-coder_6.7b-instruct+cot_temp0.0_output.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_output/generations.json --scored_results_path scores/icl_after_deepseek-coder_6.7b-instruct+cot_temp0.0-output.json --mode output
++ tee icl_evaluation_logs/deepseek-coder_6.7b-instruct+cot_temp0.0_output.log
+Scoring ../icl_model_generations/deepseek-coder:6.7b-instruct+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 0.5 pass@5: 100.0
+Dumping to scores/icl_after_deepseek-coder_6.7b-instruct+cot_temp0.0-output.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/starcoder2:15b+cot_temp0.0_input/generations.json
+++ basename ../icl_model_generations/starcoder2:15b+cot_temp0.0_input
++ DIR_NAME=starcoder2:15b+cot_temp0.0_input
++ [[ starcoder2:15b+cot_temp0.0_input == *_input ]]
++ MODE=input
++ MODEL_NAME=starcoder2:15b+cot_temp0.0
+++ echo starcoder2:15b+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=starcoder2_15b+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_starcoder2_15b+cot_temp0.0-input.json
++ LOG_PATH=icl_evaluation_logs/starcoder2_15b+cot_temp0.0_input.log
++ echo 'Processing: ../icl_model_generations/starcoder2:15b+cot_temp0.0_input/generations.json'
+Processing: ../icl_model_generations/starcoder2:15b+cot_temp0.0_input/generations.json
++ echo 'Model: starcoder2:15b+cot_temp0.0'
+Model: starcoder2:15b+cot_temp0.0
++ echo 'Mode: input'
+Mode: input
++ echo 'Scored results: scores/icl_after_starcoder2_15b+cot_temp0.0-input.json'
+Scored results: scores/icl_after_starcoder2_15b+cot_temp0.0-input.json
++ echo 'Log file: icl_evaluation_logs/starcoder2_15b+cot_temp0.0_input.log'
+Log file: icl_evaluation_logs/starcoder2_15b+cot_temp0.0_input.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/starcoder2:15b+cot_temp0.0_input/generations.json --scored_results_path scores/icl_after_starcoder2_15b+cot_temp0.0-input.json --mode input
++ tee icl_evaluation_logs/starcoder2_15b+cot_temp0.0_input.log
+Scoring ../icl_model_generations/starcoder2:15b+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 38.0 pass@5: 100.0
+Dumping to scores/icl_after_starcoder2_15b+cot_temp0.0-input.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/starcoder2:15b+cot_temp0.0_output/generations.json
+++ basename ../icl_model_generations/starcoder2:15b+cot_temp0.0_output
++ DIR_NAME=starcoder2:15b+cot_temp0.0_output
++ [[ starcoder2:15b+cot_temp0.0_output == *_input ]]
++ [[ starcoder2:15b+cot_temp0.0_output == *_output ]]
++ MODE=output
++ MODEL_NAME=starcoder2:15b+cot_temp0.0
+++ echo starcoder2:15b+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=starcoder2_15b+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_starcoder2_15b+cot_temp0.0-output.json
++ LOG_PATH=icl_evaluation_logs/starcoder2_15b+cot_temp0.0_output.log
++ echo 'Processing: ../icl_model_generations/starcoder2:15b+cot_temp0.0_output/generations.json'
+Processing: ../icl_model_generations/starcoder2:15b+cot_temp0.0_output/generations.json
++ echo 'Model: starcoder2:15b+cot_temp0.0'
+Model: starcoder2:15b+cot_temp0.0
++ echo 'Mode: output'
+Mode: output
++ echo 'Scored results: scores/icl_after_starcoder2_15b+cot_temp0.0-output.json'
+Scored results: scores/icl_after_starcoder2_15b+cot_temp0.0-output.json
++ echo 'Log file: icl_evaluation_logs/starcoder2_15b+cot_temp0.0_output.log'
+Log file: icl_evaluation_logs/starcoder2_15b+cot_temp0.0_output.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/starcoder2:15b+cot_temp0.0_output/generations.json --scored_results_path scores/icl_after_starcoder2_15b+cot_temp0.0-output.json --mode output
++ tee icl_evaluation_logs/starcoder2_15b+cot_temp0.0_output.log
+Scoring ../icl_model_generations/starcoder2:15b+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 33.0 pass@5: 100.0
+Dumping to scores/icl_after_starcoder2_15b+cot_temp0.0-output.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/wizardcoder:33b+cot_temp0.0_input/generations.json
+++ basename ../icl_model_generations/wizardcoder:33b+cot_temp0.0_input
++ DIR_NAME=wizardcoder:33b+cot_temp0.0_input
++ [[ wizardcoder:33b+cot_temp0.0_input == *_input ]]
++ MODE=input
++ MODEL_NAME=wizardcoder:33b+cot_temp0.0
+++ echo wizardcoder:33b+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=wizardcoder_33b+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_wizardcoder_33b+cot_temp0.0-input.json
++ LOG_PATH=icl_evaluation_logs/wizardcoder_33b+cot_temp0.0_input.log
++ echo 'Processing: ../icl_model_generations/wizardcoder:33b+cot_temp0.0_input/generations.json'
+Processing: ../icl_model_generations/wizardcoder:33b+cot_temp0.0_input/generations.json
++ echo 'Model: wizardcoder:33b+cot_temp0.0'
+Model: wizardcoder:33b+cot_temp0.0
++ echo 'Mode: input'
+Mode: input
++ echo 'Scored results: scores/icl_after_wizardcoder_33b+cot_temp0.0-input.json'
+Scored results: scores/icl_after_wizardcoder_33b+cot_temp0.0-input.json
++ echo 'Log file: icl_evaluation_logs/wizardcoder_33b+cot_temp0.0_input.log'
+Log file: icl_evaluation_logs/wizardcoder_33b+cot_temp0.0_input.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/wizardcoder:33b+cot_temp0.0_input/generations.json --scored_results_path scores/icl_after_wizardcoder_33b+cot_temp0.0-input.json --mode input
++ tee icl_evaluation_logs/wizardcoder_33b+cot_temp0.0_input.log
+Scoring ../icl_model_generations/wizardcoder:33b+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 24.0 pass@5: 100.0
+Dumping to scores/icl_after_wizardcoder_33b+cot_temp0.0-input.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/wizardcoder:33b+cot_temp0.0_output/generations.json
+++ basename ../icl_model_generations/wizardcoder:33b+cot_temp0.0_output
++ DIR_NAME=wizardcoder:33b+cot_temp0.0_output
++ [[ wizardcoder:33b+cot_temp0.0_output == *_input ]]
++ [[ wizardcoder:33b+cot_temp0.0_output == *_output ]]
++ MODE=output
++ MODEL_NAME=wizardcoder:33b+cot_temp0.0
+++ echo wizardcoder:33b+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=wizardcoder_33b+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_wizardcoder_33b+cot_temp0.0-output.json
++ LOG_PATH=icl_evaluation_logs/wizardcoder_33b+cot_temp0.0_output.log
++ echo 'Processing: ../icl_model_generations/wizardcoder:33b+cot_temp0.0_output/generations.json'
+Processing: ../icl_model_generations/wizardcoder:33b+cot_temp0.0_output/generations.json
++ echo 'Model: wizardcoder:33b+cot_temp0.0'
+Model: wizardcoder:33b+cot_temp0.0
++ echo 'Mode: output'
+Mode: output
++ echo 'Scored results: scores/icl_after_wizardcoder_33b+cot_temp0.0-output.json'
+Scored results: scores/icl_after_wizardcoder_33b+cot_temp0.0-output.json
++ echo 'Log file: icl_evaluation_logs/wizardcoder_33b+cot_temp0.0_output.log'
+Log file: icl_evaluation_logs/wizardcoder_33b+cot_temp0.0_output.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/wizardcoder:33b+cot_temp0.0_output/generations.json --scored_results_path scores/icl_after_wizardcoder_33b+cot_temp0.0-output.json --mode output
++ tee icl_evaluation_logs/wizardcoder_33b+cot_temp0.0_output.log
+Scoring ../icl_model_generations/wizardcoder:33b+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 29.0 pass@5: 100.0
+Dumping to scores/icl_after_wizardcoder_33b+cot_temp0.0-output.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_input/generations.json
+++ basename ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_input
++ DIR_NAME=wizardcoder:15b+cot_temp0.0_input
++ [[ wizardcoder:15b+cot_temp0.0_input == *_input ]]
++ MODE=input
++ MODEL_NAME=wizardcoder:15b+cot_temp0.0
+++ echo wizardcoder:15b+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=wizardcoder_15b+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_wizardcoder_15b+cot_temp0.0-input.json
++ LOG_PATH=icl_evaluation_logs/wizardcoder_15b+cot_temp0.0_input.log
++ echo 'Processing: ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_input/generations.json'
+Processing: ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_input/generations.json
++ echo 'Model: wizardcoder:15b+cot_temp0.0'
+Model: wizardcoder:15b+cot_temp0.0
++ echo 'Mode: input'
+Mode: input
++ echo 'Scored results: scores/icl_after_wizardcoder_15b+cot_temp0.0-input.json'
+Scored results: scores/icl_after_wizardcoder_15b+cot_temp0.0-input.json
++ echo 'Log file: icl_evaluation_logs/wizardcoder_15b+cot_temp0.0_input.log'
+Log file: icl_evaluation_logs/wizardcoder_15b+cot_temp0.0_input.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_input/generations.json --scored_results_path scores/icl_after_wizardcoder_15b+cot_temp0.0-input.json --mode input
++ tee icl_evaluation_logs/wizardcoder_15b+cot_temp0.0_input.log
+Scoring ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 3.0 pass@5: 100.0
+Dumping to scores/icl_after_wizardcoder_15b+cot_temp0.0-input.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_output/generations.json
+++ basename ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_output
++ DIR_NAME=wizardcoder:15b+cot_temp0.0_output
++ [[ wizardcoder:15b+cot_temp0.0_output == *_input ]]
++ [[ wizardcoder:15b+cot_temp0.0_output == *_output ]]
++ MODE=output
++ MODEL_NAME=wizardcoder:15b+cot_temp0.0
+++ echo wizardcoder:15b+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=wizardcoder_15b+cot_temp0.0
++ SCORED_RESULTS_PATH=scores/icl_after_wizardcoder_15b+cot_temp0.0-output.json
++ LOG_PATH=icl_evaluation_logs/wizardcoder_15b+cot_temp0.0_output.log
++ echo 'Processing: ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_output/generations.json'
+Processing: ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_output/generations.json
++ echo 'Model: wizardcoder:15b+cot_temp0.0'
+Model: wizardcoder:15b+cot_temp0.0
++ echo 'Mode: output'
+Mode: output
++ echo 'Scored results: scores/icl_after_wizardcoder_15b+cot_temp0.0-output.json'
+Scored results: scores/icl_after_wizardcoder_15b+cot_temp0.0-output.json
++ echo 'Log file: icl_evaluation_logs/wizardcoder_15b+cot_temp0.0_output.log'
+Log file: icl_evaluation_logs/wizardcoder_15b+cot_temp0.0_output.log
++ python3 evaluate_generations.py --generations_path ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_output/generations.json --scored_results_path scores/icl_after_wizardcoder_15b+cot_temp0.0-output.json --mode output
++ tee icl_evaluation_logs/wizardcoder_15b+cot_temp0.0_output.log
+Scoring ../icl_model_generations/jcdickinson/wizardcoder:15b+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 3.0 pass@5: 100.0
+Dumping to scores/icl_after_wizardcoder_15b+cot_temp0.0-output.json

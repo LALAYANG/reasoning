@@ -71,7 +71,7 @@ if __name__ == "__main__":
             #   'yangccccc/deepseek-coder-multi' ]
         # 'gpt-4o']
         # 'semcoder/semcoder_1030']
-    modes = ["input", "output"] #"input", "input",
+    modes = [ "output"] #"input", "input",
     cots = [True]
     temperatures = [0.0]
     for model, mode, cot, temperature in product(models, modes, cots, temperatures):

@@ -1,0 +1,62 @@
++ SCORES_DIR=ft_scores
++ LOG_DIR=ft_evaluation_logs
++ mkdir -p ft_scores
++ mkdir -p ft_evaluation_logs
++ FILES=(../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_input/generations.json ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_output/generations.json)
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_input/generations.json
+++ basename ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_input
++ DIR_NAME=deepseek-coder-multi+cot_temp0.0_input
++ [[ deepseek-coder-multi+cot_temp0.0_input == *_input ]]
++ MODE=input
++ MODEL_NAME=deepseek-coder-multi+cot_temp0.0
+++ echo deepseek-coder-multi+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=deepseek-coder-multi+cot_temp0.0
++ SCORED_RESULTS_PATH=ft_scores/icl_after_deepseek-coder-multi+cot_temp0.0-input.json
++ LOG_PATH=ft_evaluation_logs/deepseek-coder-multi+cot_temp0.0_input.log
++ echo 'Processing: ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_input/generations.json'
+Processing: ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_input/generations.json
++ echo 'Model: deepseek-coder-multi+cot_temp0.0'
+Model: deepseek-coder-multi+cot_temp0.0
++ echo 'Mode: input'
+Mode: input
++ echo 'Scored results: ft_scores/icl_after_deepseek-coder-multi+cot_temp0.0-input.json'
+Scored results: ft_scores/icl_after_deepseek-coder-multi+cot_temp0.0-input.json
++ echo 'Log file: ft_evaluation_logs/deepseek-coder-multi+cot_temp0.0_input.log'
+Log file: ft_evaluation_logs/deepseek-coder-multi+cot_temp0.0_input.log
++ python3 evaluate_generations.py --generations_path ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_input/generations.json --scored_results_path ft_scores/icl_after_deepseek-coder-multi+cot_temp0.0-input.json --mode input
++ tee ft_evaluation_logs/deepseek-coder-multi+cot_temp0.0_input.log
+Scoring ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 5.5 pass@5: 100.0
+Dumping to ft_scores/icl_after_deepseek-coder-multi+cot_temp0.0-input.json
++ for FILE_PATH in "${FILES[@]}"
++++ dirname ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_output/generations.json
+++ basename ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_output
++ DIR_NAME=deepseek-coder-multi+cot_temp0.0_output
++ [[ deepseek-coder-multi+cot_temp0.0_output == *_input ]]
++ [[ deepseek-coder-multi+cot_temp0.0_output == *_output ]]
++ MODE=output
++ MODEL_NAME=deepseek-coder-multi+cot_temp0.0
+++ echo deepseek-coder-multi+cot_temp0.0
+++ tr /: _
++ SAFE_NAME=deepseek-coder-multi+cot_temp0.0
++ SCORED_RESULTS_PATH=ft_scores/icl_after_deepseek-coder-multi+cot_temp0.0-output.json
++ LOG_PATH=ft_evaluation_logs/deepseek-coder-multi+cot_temp0.0_output.log
++ echo 'Processing: ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_output/generations.json'
+Processing: ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_output/generations.json
++ echo 'Model: deepseek-coder-multi+cot_temp0.0'
+Model: deepseek-coder-multi+cot_temp0.0
++ echo 'Mode: output'
+Mode: output
++ echo 'Scored results: ft_scores/icl_after_deepseek-coder-multi+cot_temp0.0-output.json'
+Scored results: ft_scores/icl_after_deepseek-coder-multi+cot_temp0.0-output.json
++ echo 'Log file: ft_evaluation_logs/deepseek-coder-multi+cot_temp0.0_output.log'
+Log file: ft_evaluation_logs/deepseek-coder-multi+cot_temp0.0_output.log
++ python3 evaluate_generations.py --generations_path ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_output/generations.json --scored_results_path ft_scores/icl_after_deepseek-coder-multi+cot_temp0.0-output.json --mode output
++ tee ft_evaluation_logs/deepseek-coder-multi+cot_temp0.0_output.log
+Scoring ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 7.0 pass@5: 100.0
+Dumping to ft_scores/icl_after_deepseek-coder-multi+cot_temp0.0-output.json

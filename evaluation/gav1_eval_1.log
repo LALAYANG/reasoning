@@ -1,0 +1,42 @@
++ jsons=(../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations.json ../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_output/generations.json ../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_input/generations.json ../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_output/generations.json)
++ mkdir -p scores
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations
++ mkdir -p ga_scores/../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations
++ python evaluate_generations.py --generations_path ../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations.json --scored_results_path ga_scores/../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations.json --mode input
+Scoring ../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 4.0 pass@5: 100.0
+Dumping to ga_scores/../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_output/generations
++ mkdir -p ga_scores/../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_output/generations.json --scored_results_path ga_scores/../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_output/generations.json --mode input
+Scoring ../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 10.5 pass@5: 100.0
+Dumping to ga_scores/../GA1_2/deepseek-coder:6.7b-instruct+cot_temp0.0_output/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_input/generations
++ mkdir -p ga_scores/../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_input/generations
++ python evaluate_generations.py --generations_path ../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_input/generations.json --scored_results_path ga_scores/../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_input/generations.json --mode input
+Scoring ../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 1.5 pass@5: 100.0
+Dumping to ga_scores/../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_input/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_output/generations
++ mkdir -p ga_scores/../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_output/generations.json --scored_results_path ga_scores/../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_output/generations.json --mode input
+Scoring ../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 1.0 pass@5: 100.0
+Dumping to ga_scores/../GA1_2/jcdickinson/wizardcoder:15b+cot_temp0.0_output/generations.json

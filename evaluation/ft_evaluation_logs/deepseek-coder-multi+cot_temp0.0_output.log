@@ -1,0 +1,4 @@
+Scoring ../finetuned_multi3/yangccccc/deepseek-coder-multi+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 7.0 pass@5: 100.0
+Dumping to ft_scores/icl_after_deepseek-coder-multi+cot_temp0.0-output.json

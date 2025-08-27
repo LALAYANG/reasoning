@@ -1,0 +1,4 @@
+Scoring ../model_generations/deepseek-coder:33b-instruct+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 4.0 pass@5: 100.0
+Dumping to scores/1.json

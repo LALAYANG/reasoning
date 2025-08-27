@@ -61,7 +61,7 @@ def call_openai_api(system_prompt, prompt, temperature, n, model, max_tokens, st
     # ID = prompt.split("##ID##\n")[0].split("#sample_")[-1]
     # match_id = f"sample_{ID}"
     # print(match_id)
-    # data = read_json("icl_cruxeval.json")  #icl_cruxeval.json
+    # data = read_json("/home/yang/cruxeval/data/icl_cruxeval.json")  #icl_cruxeval.json
     # icl = data[match_id]
     # prompt = prompt + f"[THOUGHT]The following semantically equivalent program may help your understanding::\n[PYTHON]{icl}[/PYTHON][THOUGHT]"
     # prompt = prompt + "[THOUGHT] Do not answer anything else or explainations. Just give the final answer; Do not say if the two code snippets are semantically equivalent or not[/THOUGHT]"
@@ -71,20 +71,37 @@ def call_openai_api(system_prompt, prompt, temperature, n, model, max_tokens, st
     ]
     while True:
         try:
-            client = OpenAI(
-                base_url="http://127.0.0.1:8000/v1", #11434 #8000 #130.126.137.50
-                #127.0.0.1
-            )
+            if "deepseek" in model:
+                client = OpenAI(
+                    api_key=os.environ.get("DEEPSEEK_API_KEY"),
+                    base_url="https://api.deepseek.com"
+                )
+            else:
+                client = OpenAI(
+                    api_key=os.environ.get("OPENAI_API_KEY")
+                    # base_url="http://127.0.0.1:8000/v1", #11434 #8000 #130.126.137.50
+                    #127.0.0.1
+                )
             # print("With ICL:")
             print(prompt)
-            result = client.chat.completions.create(
+            if "o4" in model or "o3" in model:
+                result = client.chat.completions.create(
                 messages=prompt,
                 model=model,
-                temperature=temperature,
+                # temperature=temperature,
                 n=n,
-                max_tokens=max_tokens,
-                stop=stop
+                max_completion_tokens=max_tokens,
+                # stop=stop
             )
+            else:
+                result = client.chat.completions.create(
+                    messages=prompt,
+                    model=model,
+                    temperature=temperature,
+                    n=n,
+                    max_tokens=max_tokens,
+                    stop=stop
+                )
             print(result)
             # result = client.chat.completions.create(
             #     model=model,

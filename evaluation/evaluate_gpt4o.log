@@ -1,0 +1,42 @@
++ jsons=(../before_model_generations/model_generations/gpt-4o+cot_temp0.0_input/generations.json ../gpt4_model_generations_before/gpt-4o+cot_temp0.0_output/generations.json ../model_generations_after/gpt-4o+cot_temp0.0_input/generations.json ../model_generations_after/gpt-4o+cot_temp0.0_output/generations.json)
++ mkdir -p scores
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../before_model_generations/model_generations/gpt-4o+cot_temp0.0_input/generations
++ mkdir -p scores/../before_model_generations/model_generations/gpt-4o+cot_temp0.0_input/generations
++ python evaluate_generations.py --generations_path ../before_model_generations/model_generations/gpt-4o+cot_temp0.0_input/generations.json --scored_results_path scores/../before_model_generations/model_generations/gpt-4o+cot_temp0.0_input/generations.json --mode input
+Scoring ../before_model_generations/model_generations/gpt-4o+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 80.5 pass@5: 100.0
+Dumping to scores/../before_model_generations/model_generations/gpt-4o+cot_temp0.0_input/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../gpt4_model_generations_before/gpt-4o+cot_temp0.0_output/generations
++ mkdir -p scores/../gpt4_model_generations_before/gpt-4o+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../gpt4_model_generations_before/gpt-4o+cot_temp0.0_output/generations.json --scored_results_path scores/../gpt4_model_generations_before/gpt-4o+cot_temp0.0_output/generations.json --mode input
+Scoring ../gpt4_model_generations_before/gpt-4o+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 89.5 pass@5: 100.0
+Dumping to scores/../gpt4_model_generations_before/gpt-4o+cot_temp0.0_output/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../model_generations_after/gpt-4o+cot_temp0.0_input/generations
++ mkdir -p scores/../model_generations_after/gpt-4o+cot_temp0.0_input/generations
++ python evaluate_generations.py --generations_path ../model_generations_after/gpt-4o+cot_temp0.0_input/generations.json --scored_results_path scores/../model_generations_after/gpt-4o+cot_temp0.0_input/generations.json --mode input
+Scoring ../model_generations_after/gpt-4o+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 74.5 pass@5: 100.0
+Dumping to scores/../model_generations_after/gpt-4o+cot_temp0.0_input/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../model_generations_after/gpt-4o+cot_temp0.0_output/generations
++ mkdir -p scores/../model_generations_after/gpt-4o+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../model_generations_after/gpt-4o+cot_temp0.0_output/generations.json --scored_results_path scores/../model_generations_after/gpt-4o+cot_temp0.0_output/generations.json --mode input
+Scoring ../model_generations_after/gpt-4o+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 84.5 pass@5: 100.0
+Dumping to scores/../model_generations_after/gpt-4o+cot_temp0.0_output/generations.json
