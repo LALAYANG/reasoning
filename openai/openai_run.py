@@ -14,8 +14,7 @@ from openai_prompt import (
 def run_openai(model, mode, cot, temperature):
     print("RUN", model, mode, cot, temperature)
     # dataset = [json.loads(l) for l in open("../data/new_cruxeval_200.jsonl", "r").readlines()] #after
-    dataset = [json.loads(l) for l in open("../data/after_cruxeval_icl_200.jsonl", "r").readlines()] #before
-    # dataset = [json.loads(l) for l in open("../data/after_cruxeval_icl_200.jsonl", "r").readlines()]
+    dataset = [json.loads(l) for l in open("../data/cruxeval_200_gav1.jsonl", "r").readlines()] #before
     # "../data/cruxeval_200.jsonl"
     #"../data/new_cruxeval_200.jsonl"
     #../data/before_cruxeval_icl_200.jsonl
@@ -54,9 +53,9 @@ def run_openai(model, mode, cot, temperature):
 
 def get_save_dir(mode, model, cot, temperature):
     if cot: 
-        base_dir = f"../gav0_o4_icl/{model}+cot_temp{temperature}_{mode}"
+        base_dir = f"../GA1_vllm/{model}+cot_temp{temperature}_{mode}"
     else:
-        base_dir = f"../gav0_o4_icl/{model}_temp{temperature}_{mode}"
+        base_dir = f"../GA1_vllm/{model}_temp{temperature}_{mode}"
     try: os.makedirs(base_dir)
     except: pass
     return os.path.join(base_dir, "generations.json")
@@ -64,8 +63,8 @@ def get_save_dir(mode, model, cot, temperature):
 if __name__ == "__main__":
     # models = ["codellama:13b", "wizardcoder:33b", "codellama:34b-instruct", "codellama:13b-instruct",
     #           "deepseek-coder:6.7b-instruct", "jcdickinson/wizardcoder:15b", "deepseek-coder:6.7b",
-    #           "starcoder2:15b", "deepseek-coder:33b-instruct" ]
-    models = ["o4-mini", "deepseek-reasoner"]#"gpt-4o", "o4-mini", "deepseek-reasoner" ] #"gpt-4o", "gpt-4o", "o4-mini"
+    #           "starcoder2:15b", "deepseek-coder:33b-instruct"]
+    models = ["deepseek-ai/deepseek-coder-7b-base"]
     # [ 'yangccccc/deepseek-coder-trans' ]
             #   'yangccccc/deepseek-coder-reason-new-50' ]
             #   'yangccccc/deepseek-coder-reason-new']

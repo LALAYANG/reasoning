@@ -12,7 +12,7 @@ models=(
     # "codellama/CodeLlama-34b-hf"
 )
 
-temperatures=(0.2 0.8)
+temperatures=(0.0)
 
 for ((i=0; i<${#models[@]}; i++)); do
     model=${models[$i]}
@@ -33,7 +33,7 @@ for ((i=0; i<${#models[@]}; i++)); do
 #SBATCH --time=03:00:00
 
 dir=$dir
-SIZE=800
+SIZE=200
 GPUS=2
 
 i=\$SLURM_ARRAY_TASK_ID
