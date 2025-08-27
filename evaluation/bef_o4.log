@@ -1,0 +1,42 @@
++ jsons=(../bef_o4/deepseek-reasoner+cot_temp0.0_input/generations.json ../bef_o4/o4-mini+cot_temp0.0_input/generations.json ../bef_o4/deepseek-reasoner+cot_temp0.0_output/generations.json ../bef_o4/o4-mini+cot_temp0.0_output/generations.json)
++ mkdir -p scores
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../bef_o4/deepseek-reasoner+cot_temp0.0_input/generations
++ mkdir -p ga_scores/../bef_o4/deepseek-reasoner+cot_temp0.0_input/generations
++ python evaluate_generations.py --generations_path ../bef_o4/deepseek-reasoner+cot_temp0.0_input/generations.json --scored_results_path ga_scores/../bef_o4/deepseek-reasoner+cot_temp0.0_input/generations.json --mode input
+Scoring ../bef_o4/deepseek-reasoner+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 96.0 pass@5: 100.0
+Dumping to ga_scores/../bef_o4/deepseek-reasoner+cot_temp0.0_input/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../bef_o4/o4-mini+cot_temp0.0_input/generations
++ mkdir -p ga_scores/../bef_o4/o4-mini+cot_temp0.0_input/generations
++ python evaluate_generations.py --generations_path ../bef_o4/o4-mini+cot_temp0.0_input/generations.json --scored_results_path ga_scores/../bef_o4/o4-mini+cot_temp0.0_input/generations.json --mode input
+Scoring ../bef_o4/o4-mini+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 99.0 pass@5: 100.0
+Dumping to ga_scores/../bef_o4/o4-mini+cot_temp0.0_input/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../bef_o4/deepseek-reasoner+cot_temp0.0_output/generations
++ mkdir -p ga_scores/../bef_o4/deepseek-reasoner+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../bef_o4/deepseek-reasoner+cot_temp0.0_output/generations.json --scored_results_path ga_scores/../bef_o4/deepseek-reasoner+cot_temp0.0_output/generations.json --mode input
+Scoring ../bef_o4/deepseek-reasoner+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 99.0 pass@5: 100.0
+Dumping to ga_scores/../bef_o4/deepseek-reasoner+cot_temp0.0_output/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../bef_o4/o4-mini+cot_temp0.0_output/generations
++ mkdir -p ga_scores/../bef_o4/o4-mini+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../bef_o4/o4-mini+cot_temp0.0_output/generations.json --scored_results_path ga_scores/../bef_o4/o4-mini+cot_temp0.0_output/generations.json --mode input
+Scoring ../bef_o4/o4-mini+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 0.0 pass@5: 100.0
+Dumping to ga_scores/../bef_o4/o4-mini+cot_temp0.0_output/generations.json
