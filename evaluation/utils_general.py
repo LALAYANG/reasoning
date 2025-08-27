@@ -9,7 +9,7 @@ def pass_at_k(n, c, k):
 
 def evaluate_score(args):
     gs, (c, i, o), mode = args
-    # print(args)
+    print(args)
     execution_results = []
     for g in gs:
         if mode == "input" and "f(" not in g:

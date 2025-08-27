@@ -1,4 +1,0 @@
-Scoring ../icl_model_generations_sem/semcoder/semcoder_1030+cot_temp0.0_input/generations.json... expect around a minute
-Finished!
-pass@1: 51.5 pass@5: 100.0
-Dumping to scores/icl_after_semcoder_1030+cot_temp0.0-input.json

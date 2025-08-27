@@ -1,4 +1,0 @@
-Scoring ../finetuned_reason_before/yangccccc/deepseek-coder-trans+cot_temp0.0_output/generations.json... expect around a minute
-Finished!
-pass@1: 0.0 pass@5: 100.0
-Dumping to ft_scores/icl_after_deepseek-coder-trans+cot_temp0.0-output.json

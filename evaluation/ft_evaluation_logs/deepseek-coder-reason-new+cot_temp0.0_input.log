@@ -1,4 +1,0 @@
-Scoring ../finetuned_reason_before/yangccccc/deepseek-coder-reason-new+cot_temp0.0_input/generations.json... expect around a minute
-Finished!
-pass@1: 77.0 pass@5: 100.0
-Dumping to ft_scores/icl_after_deepseek-coder-reason-new+cot_temp0.0-input.json

@@ -1,4 +1,0 @@
-Scoring ../icl_model_generations_small/deepseek-coder:6.7b-instruct+cot_temp0.0_input/generations.json... expect around a minute
-Finished!
-pass@1: 2.5 pass@5: 100.0
-Dumping to scores/icl_after_deepseek-coder_6.7b-instruct+cot_temp0.0-input.json

@@ -1,4 +1,0 @@
-Scoring ../icl_model_generations/wizardcoder:33b+cot_temp0.0_output/generations.json... expect around a minute
-Finished!
-pass@1: 29.0 pass@5: 100.0
-Dumping to scores/icl_after_wizardcoder_33b+cot_temp0.0-output.json

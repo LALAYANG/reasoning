@@ -1,4 +1,0 @@
-Scoring ../icl_model_generations/codellama:34b-instruct+cot_temp0.0_output/generations.json... expect around a minute
-Finished!
-pass@1: 20.5 pass@5: 100.0
-Dumping to scores/icl_after_codellama_34b-instruct+cot_temp0.0-output.json
