@@ -1,4 +1,4 @@
-+ jsons=(../bef_o4/o4-mini+cot_temp0.0_output/generations.json ../gav0_o4/o4-mini+cot_temp0.0_output/generations.json ../gav1_o4/o4-mini+cot_temp0.0_output/generations.json ../gav2_o4/o4-mini+cot_temp0.0_output/generations.json)
++ jsons=(../bef_o4/o4-mini+cot_temp0.0_output/generations.json ../gav0_o4/o4-mini+cot_temp0.0_output/generations.json ../gav1_o4/o4-mini+cot_temp0.0_output/generations.json ../gav2_o4/o4-mini+cot_temp0.0_output/generations.json ../gav0_o4_icl/o4-mini+cot_temp0.0_output/generations.json)
 + mkdir -p scores
 + for file in "${jsons[@]}"
 + [[ input == ** ]]
@@ -40,3 +40,13 @@ Scoring ../gav2_o4/o4-mini+cot_temp0.0_output/generations.json... expect around 
 Finished!
 pass@1: 98.0 pass@5: 100.0
 Dumping to ga_scores/../gav2_o4/o4-mini+cot_temp0.0_output/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../gav0_o4_icl/o4-mini+cot_temp0.0_output/generations
++ mkdir -p ga_scores/../gav0_o4_icl/o4-mini+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../gav0_o4_icl/o4-mini+cot_temp0.0_output/generations.json --scored_results_path ga_scores/../gav0_o4_icl/o4-mini+cot_temp0.0_output/generations.json --mode input
+Scoring ../gav0_o4_icl/o4-mini+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 98.0 pass@5: 100.0
+Dumping to ga_scores/../gav0_o4_icl/o4-mini+cot_temp0.0_output/generations.json

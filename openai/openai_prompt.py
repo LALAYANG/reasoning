@@ -44,7 +44,7 @@ def extract_answer_cot_input(gen):
 
 def extract_answer_cot_output(gen):
     if "[ANSWER]" in gen:
-        gen = gen.split("[ANSWER]")[1].strip()
+        gen = gen.split("[ANSWER]")[1].strip() #.split("[/ANSWER]")[0]
         if "==" in gen:
             gen = gen.split("==")[1]
         return gen.strip()

@@ -287,8 +287,32 @@ jsons=(
 # ../inference/model_generations_raw/semcoder/semcoder_temp0.01_output/shard_9.json
 # ../inference/model_generations_raw/semcoder/semcoder_temp0.01_output/shard_9_raw.json
 
-../gav1_o4/o4-mini+cot_temp0.0_output/generations.json
+# ../bef_o4/o4-mini+cot_temp0.0_output/generations.json
+# ../gav0_o4/o4-mini+cot_temp0.0_output/generations.json
+# ../gav2_o4/o4-mini+cot_temp0.0_output/generations.json
+# ../gav0_o4_icl/o4-mini+cot_temp0.0_output/generations.json
 
+# ../gav1_o4_output/o4-mini+cot_temp0.0_output/generations.json
+# ../gav1_o4_output/o4-mini+cot_temp0.0_input/generations.json
+# ../gav2_o4_output/o4-mini+cot_temp0.0_input/generations.json
+# ../gav2_o4_output/o4-mini+cot_temp0.0_output/generations.json
+# ../gav0_o4_output/o4-mini+cot_temp0.0_input/generations.json
+# ../gav0_o4_output/o4-mini+cot_temp0.0_output/generations.json
+# ../gav0_o4_output_icl/o4-mini+cot_temp0.0_input/generations.json
+# ../gav0_o4_output_icl/o4-mini+cot_temp0.0_output/generations.json
+
+../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_input/generations.json
+../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_output/generations.json
+../gav0_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json
+../gav0_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json
+
+../gav1_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json
+../gav1_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json
+../gav2_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json
+../gav2_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json
+
+../gabef_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json
+../gabef_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json
 )
 
 
