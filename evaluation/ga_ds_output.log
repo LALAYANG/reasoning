@@ -1,0 +1,102 @@
++ jsons=(../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_input/generations.json ../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_output/generations.json ../gav0_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json ../gav0_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json ../gav1_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json ../gav1_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json ../gav2_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json ../gav2_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json ../gabef_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json ../gabef_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json)
++ mkdir -p scores
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_input/generations
++ mkdir -p ga_scores/../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_input/generations
++ python evaluate_generations.py --generations_path ../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_input/generations.json --scored_results_path ga_scores/../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_input/generations.json --mode input
+Scoring ../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 87.5 pass@5: 100.0
+Dumping to ga_scores/../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_input/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_output/generations
++ mkdir -p ga_scores/../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_output/generations.json --scored_results_path ga_scores/../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_output/generations.json --mode input
+Scoring ../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 98.0 pass@5: 100.0
+Dumping to ga_scores/../gav0_ds_output_icl/deepseek-reasoner+cot_temp0.0_output/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../gav0_ds_output/deepseek-reasoner+cot_temp0.0_input/generations
++ mkdir -p ga_scores/../gav0_ds_output/deepseek-reasoner+cot_temp0.0_input/generations
++ python evaluate_generations.py --generations_path ../gav0_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json --scored_results_path ga_scores/../gav0_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json --mode input
+Scoring ../gav0_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 84.0 pass@5: 100.0
+Dumping to ga_scores/../gav0_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../gav0_ds_output/deepseek-reasoner+cot_temp0.0_output/generations
++ mkdir -p ga_scores/../gav0_ds_output/deepseek-reasoner+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../gav0_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json --scored_results_path ga_scores/../gav0_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json --mode input
+Scoring ../gav0_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 97.0 pass@5: 100.0
+Dumping to ga_scores/../gav0_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../gav1_ds_output/deepseek-reasoner+cot_temp0.0_input/generations
++ mkdir -p ga_scores/../gav1_ds_output/deepseek-reasoner+cot_temp0.0_input/generations
++ python evaluate_generations.py --generations_path ../gav1_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json --scored_results_path ga_scores/../gav1_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json --mode input
+Scoring ../gav1_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 84.0 pass@5: 100.0
+Dumping to ga_scores/../gav1_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../gav1_ds_output/deepseek-reasoner+cot_temp0.0_output/generations
++ mkdir -p ga_scores/../gav1_ds_output/deepseek-reasoner+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../gav1_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json --scored_results_path ga_scores/../gav1_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json --mode input
+Scoring ../gav1_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 95.5 pass@5: 100.0
+Dumping to ga_scores/../gav1_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../gav2_ds_output/deepseek-reasoner+cot_temp0.0_input/generations
++ mkdir -p ga_scores/../gav2_ds_output/deepseek-reasoner+cot_temp0.0_input/generations
++ python evaluate_generations.py --generations_path ../gav2_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json --scored_results_path ga_scores/../gav2_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json --mode input
+Scoring ../gav2_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 85.5 pass@5: 100.0
+Dumping to ga_scores/../gav2_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../gav2_ds_output/deepseek-reasoner+cot_temp0.0_output/generations
++ mkdir -p ga_scores/../gav2_ds_output/deepseek-reasoner+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../gav2_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json --scored_results_path ga_scores/../gav2_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json --mode input
+Scoring ../gav2_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 96.5 pass@5: 100.0
+Dumping to ga_scores/../gav2_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../gabef_ds_output/deepseek-reasoner+cot_temp0.0_input/generations
++ mkdir -p ga_scores/../gabef_ds_output/deepseek-reasoner+cot_temp0.0_input/generations
++ python evaluate_generations.py --generations_path ../gabef_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json --scored_results_path ga_scores/../gabef_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json --mode input
+Scoring ../gabef_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json... expect around a minute
+Finished!
+pass@1: 89.5 pass@5: 100.0
+Dumping to ga_scores/../gabef_ds_output/deepseek-reasoner+cot_temp0.0_input/generations.json
++ for file in "${jsons[@]}"
++ [[ input == ** ]]
++ mode=input
++ filepath=../gabef_ds_output/deepseek-reasoner+cot_temp0.0_output/generations
++ mkdir -p ga_scores/../gabef_ds_output/deepseek-reasoner+cot_temp0.0_output/generations
++ python evaluate_generations.py --generations_path ../gabef_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json --scored_results_path ga_scores/../gabef_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json --mode input
+Scoring ../gabef_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json... expect around a minute
+Finished!
+pass@1: 98.5 pass@5: 100.0
+Dumping to ga_scores/../gabef_ds_output/deepseek-reasoner+cot_temp0.0_output/generations.json
